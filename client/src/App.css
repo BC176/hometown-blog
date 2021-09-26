@@ -151,6 +151,20 @@ p label {
   padding: 2px 14px 2px 14px;
 }
 
+table,
+td {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+  padding: 10px;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: yellowgreen;
+  color: white;
+}
+
 .welcomePics {
   display: flex;
   padding: 10px;

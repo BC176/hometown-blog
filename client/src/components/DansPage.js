@@ -49,9 +49,14 @@ const DansPage = () => {
           title="video"
         />
       </div>
+      <button
+        style={{ display: "block", marginLeft: "auto", marginRight: "auto" }}
+        onClick={(e) => (window.location.href = "/")}>
+        Home
+      </button>
       <CommentForm />
       <footer>
-        <button onClick={(event) => (window.location.href = "/")}>Home</button>
+        {/* <button onClick={(event) => (window.location.href = "/")}>Home</button> */}
       </footer>
     </div>
   );
