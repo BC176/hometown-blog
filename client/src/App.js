@@ -4,7 +4,7 @@ import DansPage from "./components/DansPage";
 import BriansPage from "./components/BriansPage";
 import RegisterAdmin from "./components/RegisterAdmin";
 import { Router } from "@reach/router";
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 function App() {

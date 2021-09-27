@@ -1,7 +1,6 @@
 const CommentSchema = require("../models/comment.model");
 
 const newPost = (req, res) => {
-  // const { guestName, text } = req.body;
   const { body } = req;
   console.log(req.body);
   CommentSchema.create({
@@ -25,7 +24,6 @@ const deleteComment = (req, res) => {
 };
 
 module.exports = {
-  // createAdmin,
   newPost,
   getComments,
   deleteComment,

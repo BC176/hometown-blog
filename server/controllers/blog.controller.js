@@ -10,6 +10,9 @@ const createAdmin = (req, res) => {
     .catch((err) => res.json(err));
 };
 
+module.exports = {
+  createAdmin,
+};
 // const newPost = (req, res) => {
 //   // const { guestName, text } = req.body;
 //   const { body } = req;
@@ -33,10 +36,3 @@ const createAdmin = (req, res) => {
 //     .then((deletedComment) => res.status(200).send("Comment deleted by Admin"))
 //     .catch((err) => console.log(err));
 // };
-
-module.exports = {
-  createAdmin,
-  // newPost,
-  // getComments,
-  // deleteComment,
-};
