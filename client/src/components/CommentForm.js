@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const CommentForm = (props) => {
-  const { commentID } = props;
+const CommentForm = () => {
+  // const { commentID } = props;
   const [guestName, setGuestName] = useState("");
   const [posts, setPosts] = useState([]);
   const [text, setText] = useState("");
   const [errors, setErrors] = useState("");
-  const { removeFromDom } = "";
+  // const { removeFromDom } = "";
+
+  const removeFromDom = (postID) => {
+    setPosts(posts.filter((post) => post._id != postID));
+  };
 
   const handleSubmitComment = async (e) => {
     e.preventDefault();
@@ -46,7 +50,7 @@ const CommentForm = (props) => {
   const deleteComment = (id) => {
     axios
       .delete(`http://localhost:8000/api/${id}`)
-      .then((response) => {
+      .then((res) => {
         // console.log("deleted");
         removeFromDom(id);
       })
@@ -111,7 +115,7 @@ const CommentForm = (props) => {
                     <td>
                       <button
                         ref={btnRef}
-                        onClick={deleteComment}
+                        onClick={() => deleteComment(comment._id)}
                         style={{
                           display: "block",
                           marginLeft: "auto",

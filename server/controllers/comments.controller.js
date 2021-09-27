@@ -1,9 +1,9 @@
-const CommentSchema = require("../models/comment.model");
+const Comment = require("../models/comment.model");
 
 const newPost = (req, res) => {
   const { body } = req;
   console.log(req.body);
-  CommentSchema.create({
+  Comment.create({
     guestName: body.guestName,
     text: body.text,
   })
@@ -12,13 +12,13 @@ const newPost = (req, res) => {
 };
 
 const getComments = (req, res) => {
-  CommentSchema.find()
+  Comment.find()
     .then((allComments) => res.json({ allComments }))
     .catch((err) => console.log(err));
 };
 
 const deleteComment = (req, res) => {
-  CommentSchema.deleteOne({ _id: req.params.commentID })
+  Comment.deleteOne({ _id: req.params.commentID })
     .then((deletedComment) => res.status(200).send("Comment deleted by Admin"))
     .catch((err) => console.log(err));
 };

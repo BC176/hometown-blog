@@ -70,6 +70,10 @@ p {
   margin-right: auto;
 }
 
+span {
+  font-weight: bold;
+}
+
 .brianMidDiv {
   display: flex;
   padding: 20px;

@@ -1,8 +1,8 @@
-const BlogSchema = require("../models/blog.model");
+const Blog = require("../models/blog.model");
 
 const createAdmin = (req, res) => {
   const { userName, password } = req.body;
-  BlogSchema.create({
+  Blog.create({
     userName,
     password,
   })
