@@ -8,6 +8,4 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = {
-  BlogSchema: mongoose.model("Blog", BlogSchema),
-};
+module.exports = mongoose.model("Blog", BlogSchema);

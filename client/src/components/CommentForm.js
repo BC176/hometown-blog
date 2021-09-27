@@ -103,7 +103,7 @@ const CommentForm = (props) => {
           //       </p>
           posts.length > 0 &&
             posts.map((comment, index) => (
-              <table className="tableDisplayAll">
+              <table>
                 <tbody>
                   <tr key={index}>
                     <td>Guest: {comment.guestName}</td>
