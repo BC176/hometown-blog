@@ -2,7 +2,7 @@ const Comment = require("../models/comment.model");
 
 const newPost = (req, res) => {
   const { body } = req;
-  console.log(req.body);
+  // console.log(req.body);
   Comment.create({
     guestName: body.guestName,
     text: body.text,

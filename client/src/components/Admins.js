@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 // import { Link } from "@reach/router";
 
 const DisplayAdmins = (props) => {
@@ -28,6 +28,8 @@ const DisplayAdmins = (props) => {
       .catch((err) => console.log(err));
   });
 
+  let btnRef = useRef();
+
   return (
     <>
       <div>
@@ -37,10 +39,10 @@ const DisplayAdmins = (props) => {
             <table>
               <tbody>
                 <tr key={index}>
-                  <td>{admin._id}</td>
-                  <td>{admin.userName}</td>
+                  <td>Admin ID: {admin._id}</td>
+                  <td>Admin User Name: {admin.userName}</td>
                   <td>
-                    <button onClick={() => deleteAdmin(admin._id)}>
+                    <button ref={btnRef} onClick={() => deleteAdmin(admin._id)}>
                       Delete
                     </button>
                   </td>
@@ -50,11 +52,7 @@ const DisplayAdmins = (props) => {
           })}
       </div>
       <footer>
-        <button
-          style={{ display: "block", marginLeft: "auto", marginRight: "auto" }}
-          onClick={(e) => (window.location.href = "/")}>
-          Home
-        </button>
+        <button onClick={() => (window.location.href = "/")}>Home</button>
       </footer>
     </>
   ); //end return

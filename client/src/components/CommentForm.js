@@ -20,7 +20,7 @@ const CommentForm = () => {
     axios
       .post("http://localhost:8000/api/new-comment", commentData)
       .then((res) => {
-        console.log("new comment");
+        // console.log("new comment");
       })
       .catch((error) => {
         setErrors(error);

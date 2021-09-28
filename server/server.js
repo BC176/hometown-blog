@@ -8,7 +8,7 @@ require("./config/mongoose.config");
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const AdminRoutes = require("./routes/blog.routes");
+const AdminRoutes = require("./routes/admin.routes");
 const CommentRoutes = require("./routes/comment.routes");
 AdminRoutes(app);
 CommentRoutes(app);

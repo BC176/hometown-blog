@@ -1,4 +1,4 @@
-const BlogController = require("../controllers/blog.controller");
+const BlogController = require("../controllers/admin.controller");
 // const CommentsController = require("../controllers/comments.controller");
 
 module.exports = function (app) {

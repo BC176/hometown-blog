@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const BlogSchema = new mongoose.Schema(
+const AdminSchema = new mongoose.Schema(
   {
     userName: { type: String },
     password: { type: String },
@@ -9,22 +9,25 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-BlogSchema.virtual("confirmPassword")
+AdminSchema.virtual("confirmPassword")
   .get(() => this._confirmPassword)
   .set((value) => (this._confirmPassword = value));
 
-BlogSchema.pre("validate", function (next) {
+AdminSchema.pre("validate", function (next) {
   if (this.password !== this.confirmPassword) {
     this.invalidate("confirmPassword", "Passwords must match");
   }
   next();
 });
 
-BlogSchema.pre("save", function (next) {
-  bcrypt.hash(thus.password, 8).then((hashedPass) => {
-    this.password = hashedPass;
-    next();
-  });
+AdminSchema.pre("save", function (next) {
+  bcrypt
+    .hash(this.password, 8)
+    .then((hashedPass) => {
+      this.password = hashedPass;
+      next();
+    })
+    .catch((err) => console.log(err));
 });
 
-module.exports = mongoose.model("Blog", BlogSchema);
+module.exports = mongoose.model("Admin", AdminSchema);
