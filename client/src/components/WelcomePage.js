@@ -96,6 +96,19 @@ const WelcomePage = () => {
             <p>
               <input type="submit" className="adminSubmit" />
             </p>
+            <Link
+              style={{
+                width: "120px",
+                color: "black",
+                height: "25px",
+                display: "block",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginBottom: "10px",
+              }}
+              to={"/all-admins"}>
+              See Admins
+            </Link>
           </div>
         </form>
       </footer>

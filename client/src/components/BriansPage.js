@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Greeley from "../images/greeley.jpg";
 import Railroad from "../images/railroad.jpg";
 import Pawnee from "../images/pawnee.jpg";
@@ -47,6 +46,7 @@ const BriansPage = () => {
           <p>If you ever find yourself in Greeley, look me up!</p>
           <p>I promise to drive you to the nearest highway back out 😂</p>
           <iframe
+            title="greeley"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194372.99559765746!2d-104.90334848534701!3d40.42927046356227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876ea186c8af5e79%3A0xd2cfba804e0a121f!2sGreeley%2C%20CO!5e0!3m2!1sen!2sus!4v1632082844472!5m2!1sen!2sus"
             width="400"
             height="250"

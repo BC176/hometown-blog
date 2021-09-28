@@ -2,15 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 const CommentForm = () => {
-  // const { commentID } = props;
   const [guestName, setGuestName] = useState("");
   const [posts, setPosts] = useState([]);
   const [text, setText] = useState("");
   const [errors, setErrors] = useState("");
-  // const { removeFromDom } = "";
 
   const removeFromDom = (postID) => {
-    setPosts(posts.filter((post) => post._id != postID));
+    setPosts(posts.filter((post) => post._id !== postID));
   };
 
   const handleSubmitComment = async (e) => {
@@ -98,37 +96,29 @@ const CommentForm = () => {
         </div>
       </form>
       <div>
-        {
-          // posts.length &&
-          //   posts.map((comment, index) => (
-          //     <div key={index}>
-          //       <p style={{ textAlign: "center" }}>
-          //         {comment.guestName} commented {comment.text}
-          //       </p>
-          posts.length > 0 &&
-            posts.map((comment, index) => (
-              <table>
-                <tbody>
-                  <tr key={index}>
-                    <td>Guest: {comment.guestName}</td>
-                    <td>Commented: {comment.text}</td>
-                    <td>
-                      <button
-                        ref={btnRef}
-                        onClick={() => deleteComment(comment._id)}
-                        style={{
-                          display: "block",
-                          marginLeft: "auto",
-                          marginRight: "auto",
-                        }}>
-                        🔺 Delete Post
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            ))
-        }
+        {posts.length > 0 &&
+          posts.map((comment, index) => (
+            <table>
+              <tbody>
+                <tr key={index}>
+                  <td>Guest: {comment.guestName}</td>
+                  <td>Commented: {comment.text}</td>
+                  <td>
+                    <button
+                      ref={btnRef}
+                      onClick={() => deleteComment(comment._id)}
+                      style={{
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                      }}>
+                      🔺 Delete Post
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          ))}
       </div>
     </>
   ); //end return

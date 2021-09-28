@@ -3,6 +3,7 @@ import HyensPage from "./components/HyensPage";
 import DansPage from "./components/DansPage";
 import BriansPage from "./components/BriansPage";
 import RegisterAdmin from "./components/RegisterAdmin";
+import DisplayAdmins from "./components/Admins";
 import { Router } from "@reach/router";
 import React from "react";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
         <DansPage path="/dans-home" />
         <BriansPage path="/brians-home" />
         <RegisterAdmin path="/register" />
+        <DisplayAdmins path="/all-admins" />
       </Router>
     </div>
   );
