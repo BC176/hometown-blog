@@ -2,12 +2,15 @@ const Admin = require("../models/admin.model");
 
 const createAdmin = (req, res) => {
   const { body } = req;
-  console.log(req.body);
+  // console.log(req.body);
   Admin.create({
     userName: body.userName,
     password: body.password,
+    confirmPassword: body.confirmPassword,
   })
-    .then((newAdmin) => res.json(newAdmin))
+    .then((newAdmin) => {
+      res.json({ newAdmin });
+    })
     .catch((err) => res.json(err));
 };
 

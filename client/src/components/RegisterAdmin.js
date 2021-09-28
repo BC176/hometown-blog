@@ -8,20 +8,20 @@ const RegisterAdmin = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [err, setErr] = useState("");
 
-  const onSubmitHandler = async (e) => {
+  const onSubmitHandler = (e) => {
     e.preventDefault();
     const adminData = {
       newAdmin: newAdmin,
       password: password,
       confirmPassword: confirmPassword,
     };
-    try {
-      await axios.post("http://localhost:8000/api/register-admin", adminData);
-      navigate("/");
-      console.log(adminData);
-    } catch (err) {
-      setErr(err.response.data.error);
-    }
+    axios
+      .post("http://localhost:8000/api/register-admin", adminData)
+      .then((res) => {
+        navigate("/");
+        console.log(adminData);
+      })
+      .catch((err) => setErr(err.response.data.error));
   };
 
   return (

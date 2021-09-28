@@ -1,8 +1,7 @@
-const BlogController = require("../controllers/admin.controller");
-// const CommentsController = require("../controllers/comments.controller");
+const AdminController = require("../controllers/admin.controller");
 
 module.exports = function (app) {
-  app.get("/api/admins", BlogController.getAllAdmins);
-  app.post("/api/register-admin", BlogController.createAdmin);
-  app.delete("/api/:adminID", BlogController.deleteAdmin);
+  app.get("/api/admins", AdminController.getAllAdmins);
+  app.post("/api/register-admin", AdminController.createAdmin);
+  app.delete("/api/:adminID", AdminController.deleteAdmin);
 };

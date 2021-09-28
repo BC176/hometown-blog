@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
-// import { Link } from "@reach/router";
 
-const DisplayAdmins = (props) => {
+const DisplayAdmins = () => {
   const [admins, setAdmins] = useState([]);
 
   const removeFromDom = (adminID) => {
@@ -23,7 +22,7 @@ const DisplayAdmins = (props) => {
       .get("http://localhost:8000/api/admins")
       .then((allAdmins) => {
         setAdmins(allAdmins.data.allAdmins);
-        // console.log(allAdmins);
+        // console.log(allAdmins.data.allAdmins);
       })
       .catch((err) => console.log(err));
   });
@@ -31,9 +30,9 @@ const DisplayAdmins = (props) => {
   let btnRef = useRef();
 
   return (
-    <>
-      <div>
+    <> 
         <h1 style={{ textAlign: "center" }}>Admins</h1>
+        <div>
         {admins.length > 0 &&
           admins.map((admin, index) => {
             <table>
@@ -42,7 +41,11 @@ const DisplayAdmins = (props) => {
                   <td>Admin ID: {admin._id}</td>
                   <td>Admin User Name: {admin.userName}</td>
                   <td>
-                    <button ref={btnRef} onClick={() => deleteAdmin(admin._id)}>
+                    <button 
+                    ref={btnRef} 
+                    onClick={() => 
+                    deleteAdmin(admin._id)
+                    }>
                       Delete
                     </button>
                   </td>
@@ -50,7 +53,7 @@ const DisplayAdmins = (props) => {
               </tbody>
             </table>;
           })}
-      </div>
+          </div>
       <footer>
         <button onClick={() => (window.location.href = "/")}>Home</button>
       </footer>
