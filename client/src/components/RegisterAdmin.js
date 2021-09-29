@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import axios from "axios";
 
 const RegisterAdmin = () => {
-  const [newAdmin, setNewAdmin] = useState("");
+  const [userName, setuserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [err, setErr] = useState("");
@@ -11,14 +11,14 @@ const RegisterAdmin = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const adminData = {
-      newAdmin: newAdmin,
+      userName: userName,
       password: password,
       confirmPassword: confirmPassword,
     };
     axios
       .post("http://localhost:8000/api/register-admin", adminData)
       .then((res) => {
-        navigate("/");
+        // navigate("/");
         console.log(adminData);
       })
       .catch((err) => setErr(err.response.data.error));
@@ -34,7 +34,7 @@ const RegisterAdmin = () => {
             type="text"
             name=""
             id=""
-            onChange={(e) => setNewAdmin(e.target.value)}
+            onChange={(e) => setuserName(e.target.value)}
           />
         </div>
         <label htmlFor="">Admin Password</label>

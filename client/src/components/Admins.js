@@ -17,24 +17,30 @@ const DisplayAdmins = () => {
       .catch((err) => console.log(err));
   };
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/api/admins/")
+  //     .then((allAdmins) => {  
+  //       setAdmins(allAdmins.data.allAdmins);
+  //       console.log(allAdmins.data.allAdmins);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/admins")
-      .then((allAdmins) => {
-        setAdmins(allAdmins.data.allAdmins);
-        // console.log(allAdmins.data.allAdmins);
-      })
-      .catch((err) => console.log(err));
-  });
+    axios.get("http://localhost:8000/api/admins").then((allAdmins) => {
+      setAdmins(allAdmins.data.allAdmins);
+    }).catch((err) => console.log(err));
+  },[])
 
   let btnRef = useRef();
+  // console.log(admins);
 
   return (
     <> 
         <h1 style={{ textAlign: "center" }}>Admins</h1>
         <div>
-        {admins.length > 0 &&
-          admins.map((admin, index) => {
+        {admins.length > 0 && admins.map((admin, index) => (
             <table>
               <tbody>
                 <tr key={index}>
@@ -51,8 +57,8 @@ const DisplayAdmins = () => {
                   </td>
                 </tr>
               </tbody>
-            </table>;
-          })}
+            </table>
+  ))}
           </div>
       <footer>
         <button onClick={() => (window.location.href = "/")}>Home</button>
